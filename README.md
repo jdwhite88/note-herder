@@ -20,7 +20,7 @@ This is the 3rd project for XTern Bootcamp 2018, Session 1.
 ## Dependencies
 * [React.js 16.3.2](https://reactjs.org/) - JavaScript framework for building the website
 * [Fauna One](https://fonts.google.com/specimen/Fauna+One) - Font family for the website: [CSS Stylesheet](https://fonts.googleapis.com/css?family=Fauna+One|Oxygen:400,300,700)
-* [Font Awesome 4.7.0](https://fontawesome.com/) - Vector icons for the website: [CSS Stylesheet](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css)
+* [Font Awesome 5.0.13](https://fontawesome.com/) - Free version. Provides vector icons for the website: [Source code](https://use.fontawesome.com/releases/v5.0.13/js/all.js)
 
 ## Acknowledgments
 * [TechPoint](https://techpoint.org/) - For hosting the [XTern Bootcamp](https://techpoint.org/xtern-bootcamp/), where this project was completed: [Source code](https://github.com/xtbc18s1/noteherder/tree/afternoon) for in-class demo.
