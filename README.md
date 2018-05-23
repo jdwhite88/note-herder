@@ -1,12 +1,12 @@
 # note-herder
 
-A website for writing and adding notes to a list.
+A website for writing and adding notes to a list. Redesigned from existing files in [public folder](public) to work with React: [static.html](public/static.html), [sign-in.html](public/sign-in.html), and [style.css](public/style.css).
 
 This project is the 6th-7th homework for XTern Bootcamp 2018, Session 1.
 
 ## Setup
  0. Enable JavaScript in your web browser, if you haven't already.
- 1. Visit the [website](https://jdwhite88.github.io/note-herder/) in your favorite internet browser that supports ES6 (not IE or Opera).
+ 1. Visit [https://jdwhite88.github.io/note-herder/] in your favorite internet browser that supports ES6 (not IE or Opera).
  
  ## TODO
  * Implement new note button to add form to list
@@ -19,10 +19,10 @@ This project is the 6th-7th homework for XTern Bootcamp 2018, Session 1.
 
 ## Dependencies
 * [React.js 16.3.2](https://reactjs.org/) - JavaScript framework for building the website
-* [Fauna One](https://fonts.googleapis.com/css?family=Fauna+One|Oxygen:400,300,700) - Font family for the website
-* [Font Awesome 4.7.0](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css) - Vector icons for the website
+* [Fauna One](https://fonts.google.com/specimen/Fauna+One) - Font family for the website: [CSS Stylesheet](https://fonts.googleapis.com/css?family=Fauna+One|Oxygen:400,300,700)
+* [Font Awesome 4.7.0](https://fontawesome.com/) - Vector icons for the website: [CSS Stylesheet](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css)
 
 ## Acknowledgments
-* [TechPoint](https://techpoint.org/) - For hosting the [XTern Bootcamp](https://techpoint.org/xtern-bootcamp/), where this project was completed: [Source code](https://github.com/xtbc18s1/noteherder) for in-class demo.
+* [TechPoint](https://techpoint.org/) - For hosting the [XTern Bootcamp](https://techpoint.org/xtern-bootcamp/), where this project was completed: [Source code](https://github.com/xtbc18s1/noteherder/tree/afternoon) for in-class demo.
 * [Fretless](http://www.fretless.com/) - Especially Davey & Dana, for providing instruction for Xtern Bootcamp. 
 * [HTML5 Boilerplate](https://github.com/sidthesloth92/vsc_html5_boilerplate) - For providing standard HTML boilerplate code ([VS Code Extension Installation](https://marketplace.visualstudio.com/items?itemName=sidthesloth.html5-boilerplate))
