@@ -37,12 +37,16 @@ class Main extends React.Component {
         this.setState({ currentNote: note });
     }
 
+    resetCurrentNote = () => {
+        this.setCurrentNote(this.blankNote());
+    }
+
     blankNote = () => {
         return {
             id: null,
             title: "",
             body: "",
-        }
+        };
     }
 
     render() {
@@ -51,7 +55,7 @@ class Main extends React.Component {
                 className="Main"
                 style={style}
             >
-                <Sidebar />
+                <Sidebar resetCurrentNote={this.resetCurrentNote} />
                 <NoteList 
                     notes={this.state.notes}
                     setCurrentNote={this.setCurrentNote}
