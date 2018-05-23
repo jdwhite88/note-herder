@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://jdwhite88.github.io/note-herder/",
   "dependencies": {
+    "aphrodite": "^2.2.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4"
@@ -20,6 +21,6 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-      "extends": "react-app"
+    "extends": "react-app"
   }
 }
