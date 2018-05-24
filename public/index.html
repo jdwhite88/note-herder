@@ -10,6 +10,23 @@
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-auth.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBGUUB1byhESYZwkzQLm8HAUqrcnx2G2_o",
+        authDomain: "noteherder-2eb30.firebaseapp.com",
+        databaseURL: "https://noteherder-2eb30.firebaseio.com",
+        projectId: "noteherder-2eb30",
+        storageBucket: "",
+        messagingSenderId: "247039348909"
+      };
+      firebase.initializeApp(config);
+    </script>
+    
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
       crossorigin="anonymous"></script>
     <!--
