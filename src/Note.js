@@ -1,29 +1,20 @@
 import React from 'react';
 
-class Note extends React.Component {
-    constructor(props) {
-        super();
-        this.state = {
-            id: props.id,
-            title: props.title,
-            body: props.children,
-        };
-    }
-
-    render() {
-        return (
+const Note = ({ note, setCurrentNote }) => {
+    return (
+        <li onClick={() => setCurrentNote(note)}>
             <div className="note">
                 <div className="note-title">
-                    {this.state.title}
+                    {note.title}
                 </div>
                 <div className="note-body">
                     <p>
-                        {this.state.body}
+                        {note.body}
                     </p>
                 </div>
             </div>
-        );
-    }
+        </li>
+    );
 }
 
 export default Note;

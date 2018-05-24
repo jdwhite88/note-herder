@@ -16,7 +16,7 @@ const Sidebar = ({ resetCurrentNote }) => {
             href="/notes"
             onClick={(ev) => {
               ev.preventDefault();
-              resetCurrentNote(ev);
+              resetCurrentNote();
             }}
           >
             <img 

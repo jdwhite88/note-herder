@@ -9,16 +9,11 @@ const NoteList = ( { notes, setCurrentNote } ) => {
             <div className="NoteList">
             <h3>Notes</h3>
             <ul id="notes">
-                {notes.map( note => (
-                        <a key={note.id} className={note.isActive ? "active" : ""}>
-                        <li onClick={() => setCurrentNote(note)}>
-                            <Note title={note.title} setCurrentNote={setCurrentNote}>
-                                {note.body}
-                            </Note>
-                        </li>
-                        </a>
-
-                ))}
+                <a className="active">
+                    {notes.map( note => (
+                        <Note setCurrentNote={setCurrentNote} key={note.id} note={note} />
+                    ))}
+                </a>
             </ul>
             </div>
         );

@@ -28,7 +28,7 @@ class Main extends React.Component {
         const notes = [...this.state.notes];
         if (!note.id) {
             // new note
-            note.id = this.idMax++;
+            note.id = ++this.idMax;
             notes.push(note);
         }
         else {
@@ -37,9 +37,7 @@ class Main extends React.Component {
             notes[i] = note;
         }
 
-        this.setState({ notes })
-        this.setCurrentNote(note);
-        
+        this.setState({ notes, currentNote: note })        
     }
 
     removeCurrentNote = () => {
