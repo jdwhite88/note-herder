@@ -1,16 +1,21 @@
 import React from 'react';
 import './NoteForm.css';
 
-const NoteForm = (props) => {
+const NoteForm = ({ currentNote, saveNote, removeCurrentNote }) => {
 
     const handleChanges = (ev) => {
-      debugger;
+      const note = {...currentNote};
+      note[ev.target.name] = ev.target.value;
+      saveNote(note);
     }
 
     return (
         <div className="NoteForm">
           <div className="form-actions">
-            <button type="button">
+            <button 
+              type="button"
+              onClick={removeCurrentNote}
+            >
               <i className="far fa-trash-alt"></i>
             </button>
           </div>
@@ -21,13 +26,14 @@ const NoteForm = (props) => {
                 name="title"
                 placeholder="Title your note"
                 onChange={handleChanges}
-                value={props.currentNote.title}
+                value={currentNote.title}
               />
             </p>
             
             <textarea 
               name="body" 
-              value={props.currentNote.body}
+              value={currentNote.body}
+              onChange={handleChanges}
             >
             </textarea>
           </form>

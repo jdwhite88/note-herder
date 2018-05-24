@@ -4,6 +4,7 @@ class Note extends React.Component {
     constructor(props) {
         super();
         this.state = {
+            id: props.id,
             title: props.title,
             body: props.children,
         };
