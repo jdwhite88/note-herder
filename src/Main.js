@@ -3,39 +3,45 @@ import React from 'react';
 import Sidebar from './Sidebar';
 import NoteList from './NoteList';
 import NoteForm from './NoteForm';
-import firebase from 'firebase';
-import rebase from 're-base';
+
+import base from './base';
 
 class Main extends React.Component {
-
-    idMax = 0;
 
     constructor() {
         super();
         this.state = {
             currentNote: this.blankNote(),
             notes: [],
+            idMax: 0,
         }
     }
 
     componentWillMount() {
-        const notes = JSON.parse(localStorage.getItem('notes'));
-        const currentNote = JSON.parse(localStorage.getItem('currentNote'));
-        const localIdMax = localStorage.getItem('idMax');
-        this.setState({
-            notes: notes || [], 
-            currentNote: currentNote || this.blankNote(),
+        // const notes = JSON.parse(localStorage.getItem('notes'));
+        // const currentNote = JSON.parse(localStorage.getItem('currentNote'));
+        // const localIdMax = localStorage.getItem('idMax');
+        // this.setState({
+        //     notes: notes || [], 
+        //     currentNote: currentNote || this.blankNote(),
+        // });
+        // if (localIdMax != null) {
+        //     this.idMax = localIdMax;
+        // }
+        base.syncState('notes', {
+            context: this,
+            state: 'notes',
+            asArray: true,
         });
-        if (localIdMax != null) {
-            this.idMax = localIdMax;
-        }
-    }
-
-    componentDidUpdate() {
-        const notesString = localStorage.setItem(
-            'notes', JSON.stringify(this.state.notes));
-        const curString = localStorage.setItem(
-            'currentNote', JSON.stringify(this.state.currentNote));
+        base.syncState('currentNote', {
+            context: this,
+            state: 'currentNote',
+        });
+        base.syncState('idMax', {
+            context: this,
+            //BROKEN
+            state: "idMax",
+        });
     }
 
     setCurrentNote = (note) => {
@@ -50,8 +56,10 @@ class Main extends React.Component {
         const notes = [...this.state.notes];
         if (!note.id) {
             // new note
-            note.id = ++this.idMax;
-            localStorage.setItem('idMax', this.idMax);
+            // TODO: Broken
+            const nextId = this.state.idMax + 1;
+            this.setState({ idMax: nextId });
+            note.id = nextId;
             notes.push(note);
         }
         else {
