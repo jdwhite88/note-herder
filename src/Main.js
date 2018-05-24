@@ -16,8 +16,22 @@ class Main extends React.Component {
         }
     }
 
+    componentDidMount() {
+        const notes = JSON.parse(localStorage.getItem('notes'));
+        const currentNote = JSON.parse(localStorage.getItem('currentNote'));
+        const localIdMax = localStorage.getItem('idMax');
+        this.setState({
+            notes: (notes !== null) ? notes : [], 
+            currentNote: (currentNote !== null) ? currentNote : this.blankNote(),
+        });
+        if (localIdMax != null) {
+            this.idMax = localIdMax;
+        }
+    }
+
     setCurrentNote = (note) => {
         this.setState({ currentNote: note });
+        localStorage.setItem('currentNote', JSON.stringify(note));
     }
 
     resetCurrentNote = () => {
@@ -29,6 +43,7 @@ class Main extends React.Component {
         if (!note.id) {
             // new note
             note.id = ++this.idMax;
+            localStorage.setItem('idMax', this.idMax);
             notes.push(note);
         }
         else {
@@ -36,8 +51,9 @@ class Main extends React.Component {
             const i = notes.findIndex( currentNote => currentNote.id === note.id);
             notes[i] = note;
         }
-
-        this.setState({ notes, currentNote: note })        
+        this.setState({ notes, currentNote: note })  
+        localStorage.setItem('currentNote', JSON.stringify(note));
+        localStorage.setItem('notes', JSON.stringify(notes));
     }
 
     removeCurrentNote = () => {
@@ -46,6 +62,7 @@ class Main extends React.Component {
         if (i > -1) {
             notes.splice(i, 1);
             this.setState({ notes })
+            localStorage.setItem('notes', JSON.stringify(notes));
         }
 
         this.resetCurrentNote();
@@ -69,7 +86,7 @@ class Main extends React.Component {
                 />
                 <NoteForm 
                     currentNote={this.state.currentNote} 
-                    saveNote={this.saveNote} 
+                    saveNote={this.saveNote.bind(this)} 
                     removeCurrentNote={this.removeCurrentNote}
                 />
             </div>
