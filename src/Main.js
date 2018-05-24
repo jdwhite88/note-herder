@@ -23,17 +23,23 @@ class Main extends React.Component {
         const currentNote = JSON.parse(localStorage.getItem('currentNote'));
         const localIdMax = localStorage.getItem('idMax');
         this.setState({
-            notes: (notes !== null) ? notes : [], 
-            currentNote: (currentNote !== null) ? currentNote : this.blankNote(),
+            notes: notes || [], 
+            currentNote: currentNote || this.blankNote(),
         });
         if (localIdMax != null) {
             this.idMax = localIdMax;
         }
     }
 
+    componentDidUpdate() {
+        const notesString = localStorage.setItem(
+            'notes', JSON.stringify(this.state.notes));
+        const curString = localStorage.setItem(
+            'currentNote', JSON.stringify(this.state.currentNote));
+    }
+
     setCurrentNote = (note) => {
         this.setState({ currentNote: note });
-        localStorage.setItem('currentNote', JSON.stringify(note));
     }
 
     resetCurrentNote = () => {
@@ -54,8 +60,6 @@ class Main extends React.Component {
             notes[i] = note;
         }
         this.setState({ notes, currentNote: note })  
-        localStorage.setItem('currentNote', JSON.stringify(note));
-        localStorage.setItem('notes', JSON.stringify(notes));
     }
 
     removeCurrentNote = () => {
@@ -64,7 +68,6 @@ class Main extends React.Component {
         if (i > -1) {
             notes.splice(i, 1);
             this.setState({ notes })
-            localStorage.setItem('notes', JSON.stringify(notes));
         }
 
         this.resetCurrentNote();

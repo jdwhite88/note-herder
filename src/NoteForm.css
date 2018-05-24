@@ -12,6 +12,9 @@
   align-content: center;
 }
 .NoteForm button {
+  color: #999;
+  font-size: 2rem;
+  margin: 0;
   border: none;
   background: none;
   padding: 0;
@@ -23,13 +26,9 @@
   font-size: 1.4rem;
   padding: 1rem;
 }
-.NoteForm button i.fa {
-  color: #999;
-  font-size: 2rem;
-  margin: 0;
-}
 .NoteForm button:hover {
   color: black;
+  cursor: pointer;
 }
 .NoteForm form {
   margin: 0 auto;
