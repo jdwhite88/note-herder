@@ -57,7 +57,7 @@ class Main extends React.Component {
         if (!note.id) {
             // new note
             // TODO: Broken
-            const nextId = this.state.idMax + 1;
+            const nextId = this.state.idMax[0].parseInt() + 1;
             this.setState({ idMax: nextId });
             note.id = nextId;
             notes.push(note);
