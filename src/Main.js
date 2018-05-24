@@ -3,6 +3,8 @@ import React from 'react';
 import Sidebar from './Sidebar';
 import NoteList from './NoteList';
 import NoteForm from './NoteForm';
+import firebase from 'firebase';
+import rebase from 're-base';
 
 class Main extends React.Component {
 
@@ -16,7 +18,7 @@ class Main extends React.Component {
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         const notes = JSON.parse(localStorage.getItem('notes'));
         const currentNote = JSON.parse(localStorage.getItem('currentNote'));
         const localIdMax = localStorage.getItem('idMax');
