@@ -13,7 +13,7 @@ class App extends Component {
   componentWillMount() {
     auth.onAuthStateChanged( (user) => {
       if (user) {
-        this.handleAuth();
+        this.handleAuth(user);
       } 
       else {
         this.handleUnauth();
@@ -27,7 +27,7 @@ class App extends Component {
         
         { 
           this.signedIn()
-            ? <Main signOut={this.signOut} /> 
+            ? <Main signOut={this.signOut} uid={this.state.uid} /> 
             : <SignIn handleAuth={this.handleAuth} />
         }
         
@@ -39,8 +39,8 @@ class App extends Component {
     return this.state.uid;
   }
 
-  handleAuth = () => {
-    this.setState({uid: 'jdw'});
+  handleAuth = (user) => {
+    this.setState({uid: user.uid});
   }
 
   handleUnauth = () => {
