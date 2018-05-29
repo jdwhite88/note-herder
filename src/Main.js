@@ -13,21 +13,10 @@ class Main extends React.Component {
         this.state = {
             currentNote: this.blankNote(),
             notes: [],
-            idMax: 0,
         }
     }
 
     componentWillMount() {
-        // const notes = JSON.parse(localStorage.getItem('notes'));
-        // const currentNote = JSON.parse(localStorage.getItem('currentNote'));
-        // const localIdMax = localStorage.getItem('idMax');
-        // this.setState({
-        //     notes: notes || [], 
-        //     currentNote: currentNote || this.blankNote(),
-        // });
-        // if (localIdMax != null) {
-        //     this.idMax = localIdMax;
-        // }
         base.syncState('notes', {
             context: this,
             state: 'notes',
@@ -36,11 +25,6 @@ class Main extends React.Component {
         base.syncState('currentNote', {
             context: this,
             state: 'currentNote',
-        });
-        base.syncState('idMax', {
-            context: this,
-            //BROKEN
-            state: "idMax",
         });
     }
 
@@ -56,10 +40,7 @@ class Main extends React.Component {
         const notes = [...this.state.notes];
         if (!note.id) {
             // new note
-            // TODO: Broken
-            const nextId = this.state.idMax[0].parseInt() + 1;
-            this.setState({ idMax: nextId });
-            note.id = nextId;
+            note.id = Date.now();
             notes.push(note);
         }
         else {
