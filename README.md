@@ -11,14 +11,16 @@ This is the 3rd project for XTern Bootcamp 2018, Session 1.
  
  ## TODO
  #### WIP
- * Authenticate using Google
  * Hide SignIn popup window during authentication
- * Prevent Sign-In window from being rendered if authenticating.
- * Sync notes with given user account
+ * Hide authentication window when signing in.
+ * Sync notes in the database with each user account
  * Customize sign-in page
 
  #### Known Bugs
- * Sync idMax value with Firebase
+ * When note deleted, displays nothing (should display first in list)
+ 
+ #### Optimizations
+ * ID should not be based on current time
  * Header styling for SignIn.css incorrectly in App.css
 
 ## Author
