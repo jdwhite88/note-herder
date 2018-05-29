@@ -11,12 +11,12 @@ This is the 3rd project for XTern Bootcamp 2018, Session 1.
  
  ## TODO
  #### Future Ideas
+ * Show the logged-in user on the Sidebar
  * Hide SignIn popup window during authentication
  * Customize sign-in page
 
- #### Known Bugs
- * When note deleted, displays nothing (should display first in list)
- * ID should not be based on current time
+ #### Known Issues
+ * Refactor note ID generation to ensure uniqueness
  * Header styling for SignIn.css incorrectly in App.css
 
 ## Author

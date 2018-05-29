@@ -54,13 +54,20 @@ class Main extends React.Component {
 
     removeCurrentNote = () => {
         const notes = [...this.state.notes];
+        let listLen = notes.length;
         const i = notes.findIndex(note => note.id === this.state.currentNote.id);
         if (i > -1) {
             notes.splice(i, 1);
-            this.setState({ notes })
+            this.setState({ notes });
+            listLen--;
         }
 
-        this.resetCurrentNote();
+        if (listLen > 0) {
+            this.setCurrentNote(notes[0]);
+        }
+        else {
+            this.resetCurrentNote();
+        }
     }
 
     blankNote = () => {
