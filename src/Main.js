@@ -16,15 +16,16 @@ class Main extends React.Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         base.syncState(`notes/${this.props.uid}`, {
             context: this,
             state: 'notes',
             asArray: true,
         });
-        base.syncState('currentNote', {
+        base.syncState(`currentNote/${this.props.uid}`, {
             context: this,
             state: 'currentNote',
+            defaultValue: this.blankNote(),
         });
     }
 
