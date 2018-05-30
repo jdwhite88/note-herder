@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+
 
 import './App.css';
 import {auth} from './base';
@@ -28,11 +30,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        
+        <Switch>
+          <Route path="/sign-in" render={() => (
+            this.signedIn()
+              ? <Redirect to="/notes" /> 
+              : <SignIn handleAuth={this.handleAuth} />
+          )} />
+          <Route path="/notes" render={() => (
+            this.signedIn()
+              ? <Main signOut={this.signOut} uid={this.state.uid} /> 
+              : <Redirect to="/sign-in" />
+          )} />
+        </Switch>
         { 
-          this.signedIn()
-            ? <Main signOut={this.signOut} uid={this.state.uid} /> 
-            : <SignIn handleAuth={this.handleAuth} />
+          // this.signedIn()
+          //   ? <Main signOut={this.signOut} uid={this.state.uid} /> 
+          //   : <SignIn handleAuth={this.handleAuth} />
         }
         
       </div>
