@@ -1,15 +1,20 @@
 # note-herder
 
-A website that allows users to add, remove, and edit a list of notes. Users authenticated via GitHub or Google. Redesigned from existing template files to work with React: [notes.html](public/notes.html), [sign-in.html](public/sign-in.html), and [style.css](public/style.css).
+A website that allows users to add, remove, and edit a list of notes. Authenticated via GitHub or Google. Redesigned from existing template files to work with React: [notes.html](public/notes.html), [sign-in.html](public/sign-in.html), and [style.css](public/style.css).
 
 This is the 3rd project for XTern Bootcamp 2018, Session 1.
 
 ## Setup
  0. Enable JavaScript in your web browser, if you haven't already.
- 1. Visit https://jdwhite88.github.io/note-herder/ in your favorite internet browser that supports ES6 (not IE or Opera).
+ 1. Visit https://noteherder-2eb30.firebaseapp.com/ in your favorite internet browser that supports ES6 (not IE or Opera).
  2. Login with either a GitHub or Google account.
  
  ## TODO
+ #### WIP
+ * Replace deprecated componentWillReceiveProps calls with componentDidUpdate or similar
+ * Move edited notes to the top of the list
+ * Display note at top of list when note deleted
+
  #### Future Ideas
  * Show the logged-in user on the Sidebar
  * Hide SignIn popup window during authentication
