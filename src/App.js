@@ -36,9 +36,13 @@ class App extends Component {
               ? <Redirect to="/notes" /> 
               : <SignIn handleAuth={this.handleAuth} />
           )} />
-          <Route path="/notes" render={() => (
+          <Route path="/notes" render={navProps => (
             this.signedIn()
-              ? <Main signOut={this.signOut} uid={this.state.uid} /> 
+              ? <Main 
+                  signOut={this.signOut} 
+                  uid={this.state.uid} 
+                  {...navProps}
+                /> 
               : <Redirect to="/sign-in" />
           )} />
           <Route render={() => (
