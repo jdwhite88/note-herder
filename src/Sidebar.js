@@ -1,24 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './Sidebar.css';
 import quill from './quill.svg';
 import newIcon from './new.png';
 import newHover from './new-hover.png';
 
-const Sidebar = ({ resetCurrentNote, signOut }) => {
+const Sidebar = ({ signOut }) => {
     return (
         <nav className="Sidebar">
           <div className="logo">
             <img src={quill} alt="Noteherder" />
           </div>
-          <a 
-            className="new-note" 
-            href="/notes"
-            onClick={(ev) => {
-              ev.preventDefault();
-              resetCurrentNote();
-            }}
-          >
+          <Link to="/notes" className="new-note">
             <img 
                 className="hover"
                 src={newHover} 
@@ -29,7 +23,7 @@ const Sidebar = ({ resetCurrentNote, signOut }) => {
                 src={newIcon} 
                 alt="New note" 
             />
-          </a>
+          </Link>
           <div className="SignOut">
             <button onClick={signOut}>
               <i 

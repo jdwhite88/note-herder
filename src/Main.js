@@ -44,13 +44,14 @@ class Main extends React.Component {
             // new note
             note.id = Date.now();
             notes.push(note);
+            this.props.history.push(`/notes/${note.id}`);
         }
         else {
             // existing note
             const i = notes.findIndex( currentNote => currentNote.id === note.id);
             notes[i] = note;
         }
-        this.setState({ notes, currentNote: note })  
+        this.setState({ notes });
     }
 
     removeCurrentNote = () => {
@@ -90,7 +91,6 @@ class Main extends React.Component {
         return (
             <div className="Main" style={style}>
                 <Sidebar 
-                    resetCurrentNote={this.resetCurrentNote}
                     signOut={this.props.signOut}
                 />
                 <NoteList 
