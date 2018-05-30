@@ -1,4 +1,5 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
 import Sidebar from './Sidebar';
 import NoteList from './NoteList';
@@ -79,6 +80,13 @@ class Main extends React.Component {
     }
 
     render() {
+        const formProps = {
+            currentNote: this.state.currentNote,
+            saveNote: this.saveNote,
+            removeCurrentNote: this.removeCurrentNote,
+        }
+
+
         return (
             <div className="Main" style={style}>
                 <Sidebar 
@@ -89,11 +97,27 @@ class Main extends React.Component {
                     notes={this.state.notes}
                     setCurrentNote={this.setCurrentNote}
                 />
-                <NoteForm 
-                    currentNote={this.state.currentNote} 
-                    saveNote={this.saveNote.bind(this)} 
-                    removeCurrentNote={this.removeCurrentNote}
-                />
+
+                <Switch>
+                    <Route 
+                        path="/notes/:id" 
+                        render={navProps => (
+                            <NoteForm 
+                                {...formProps}
+                                {...navProps}
+                            />
+                        )}
+                    />
+                    <Route 
+                        render={navProps => (
+                            <NoteForm 
+                                {...formProps}
+                                {...navProps}
+                            />
+                        )}
+                    />
+                </Switch>
+                
             </div>
         );
     }
