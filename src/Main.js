@@ -16,16 +16,11 @@ class Main extends React.Component {
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         base.syncState(`notes/${this.props.uid}`, {
             context: this,
             state: 'notes',
             asArray: true,
-        });
-        base.syncState(`currentNote/${this.props.uid}`, {
-            context: this,
-            state: 'currentNote',
-            defaultValue: this.blankNote(),
         });
     }
 
@@ -69,14 +64,6 @@ class Main extends React.Component {
         else {
             this.props.history.push(`/notes`);
         }
-    }
-
-    blankNote = () => {
-        return {
-            id: null,
-            title: "",
-            body: "",
-        };
     }
 
     render() {
