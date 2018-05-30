@@ -12,7 +12,6 @@ class Main extends React.Component {
     constructor({ signOut }) {
         super();
         this.state = {
-            currentNote: this.blankNote(),
             notes: [],
         }
     }
@@ -28,14 +27,6 @@ class Main extends React.Component {
             state: 'currentNote',
             defaultValue: this.blankNote(),
         });
-    }
-
-    setCurrentNote = (note) => {
-        this.setState({ currentNote: note });
-    }
-
-    resetCurrentNote = () => {
-        this.setCurrentNote(this.blankNote());
     }
 
     saveNote = (note) => {
@@ -62,10 +53,10 @@ class Main extends React.Component {
         );
     }
 
-    removeCurrentNote = () => {
+    removeNote = (currentNote) => {
         const notes = [...this.state.notes];
         let listLen = notes.length;
-        const i = notes.findIndex(note => note.id === this.state.currentNote.id);
+        const i = notes.findIndex(note => note.id === currentNote.id);
         if (i > -1) {
             notes.splice(i, 1);
             this.setState({ notes });
@@ -73,10 +64,10 @@ class Main extends React.Component {
         }
 
         if (listLen > 0) {
-            this.setCurrentNote(notes[0]);
+            this.props.history.push(`/notes/${currentNote.id}`);
         }
         else {
-            this.resetCurrentNote();
+            this.props.history.push(`/notes`);
         }
     }
 
@@ -91,7 +82,7 @@ class Main extends React.Component {
     render() {
         const formProps = {
             saveNote: this.saveNote,
-            removeCurrentNote: this.removeCurrentNote,
+            removeNote: this.removeNote,
             notes: this.state.notes,
         }
 
