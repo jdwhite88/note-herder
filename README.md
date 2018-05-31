@@ -12,16 +12,15 @@ This is the 3rd project for XTern Bootcamp 2018, Session 1.
  ## TODO
  #### WIP
  * Replace deprecated componentWillReceiveProps calls with componentDidUpdate or similar
- * Move edited notes to the top of the list
- * Display note at top of list when note deleted
 
  #### Future Ideas
+ * Display time the notes were modified and/or created
  * Show the logged-in user on the Sidebar
  * Hide SignIn popup window during authentication
  * Customize sign-in page
 
  #### Known Issues
- * Refactor note ID generation to ensure uniqueness
+ * ID generation doesn't ensure uniqueness
  * Header styling for SignIn.css incorrectly in App.css
 
 ## Author
