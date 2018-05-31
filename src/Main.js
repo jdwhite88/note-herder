@@ -38,6 +38,7 @@ class Main extends React.Component {
             const i = notes.findIndex( currentNote => currentNote.id === note.id);
             notes[i] = note;
         }
+        this.unshiftNote(note, notes);
         this.setState(
             { notes },
             () => {
@@ -59,10 +60,21 @@ class Main extends React.Component {
         }
 
         if (listLen > 0) {
-            this.props.history.push(`/notes/${currentNote.id}`);
+            this.props.history.push(`/notes/${notes[0].id}`);
         }
         else {
             this.props.history.push(`/notes`);
+        }
+    }
+
+    /*
+     *  Move note to beginning of array
+     */
+    unshiftNote = (currentNote, notes) => {
+        const i = notes.findIndex(note => note.id === currentNote.id);
+        if (i > -1 && i < notes.length) {
+            const note = notes.splice(i, 1)[0];
+            notes.unshift(note);
         }
     }
 
