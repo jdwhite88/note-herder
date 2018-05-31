@@ -29,12 +29,13 @@ class NoteForm extends React.Component {
     }
 
     static blankNote = () => {
+        const now = Date.now();
         return {
             id: null,
             title: "",
             body: "",
-            createdAt: (new Date()).toString(),
-            updatedAt: null,
+            createdAt: now,
+            updatedAt: now,
         };
     }
 

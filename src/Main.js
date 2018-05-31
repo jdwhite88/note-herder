@@ -25,21 +25,26 @@ class Main extends React.Component {
     }
 
     saveNote = (note) => {
+        const now = Date.now();
         let shouldRedirect = false;
         const notes = [...this.state.notes];
         if (!note.id) {
             // new note
-            note.id = Date.now();
+            note.id = now;
             notes.push(note);
             shouldRedirect = true;
         }
         else {
             // existing note
             const i = notes.findIndex( currentNote => currentNote.id === note.id);
-            note.updatedAt = (new Date()).toString();
+            note.updatedAt = now;
             notes[i] = note;
         }
-        this.unshiftNote(note, notes);
+
+        notes.sort((a,b) => {
+            return b.updatedAt - a.updatedAt;
+        });
+
         this.setState(
             { notes },
             () => {
@@ -65,17 +70,6 @@ class Main extends React.Component {
         }
         else {
             this.props.history.push(`/notes`);
-        }
-    }
-
-    /*
-     *  Move note to beginning of array
-     */
-    unshiftNote = (currentNote, notes) => {
-        const i = notes.findIndex(note => note.id === currentNote.id);
-        if (i > -1 && i < notes.length) {
-            const note = notes.splice(i, 1)[0];
-            notes.unshift(note);
         }
     }
 
