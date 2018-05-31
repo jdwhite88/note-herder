@@ -33,6 +33,8 @@ class NoteForm extends React.Component {
             id: null,
             title: "",
             body: "",
+            createdAt: (new Date()).toString(),
+            updatedAt: null,
         };
     }
 

@@ -36,6 +36,7 @@ class Main extends React.Component {
         else {
             // existing note
             const i = notes.findIndex( currentNote => currentNote.id === note.id);
+            note.updatedAt = (new Date()).toString();
             notes[i] = note;
         }
         this.unshiftNote(note, notes);
