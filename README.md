@@ -10,12 +10,9 @@ This is the 3rd project for XTern Bootcamp 2018, Session 1.
  2. Login with either a GitHub or Google account.
  
  ## TODO
- #### WIP
- * Replace deprecated componentWillReceiveProps calls with componentDidUpdate or similar
-
  #### Future Ideas
- * Display time the notes were modified and/or created
- * Show the logged-in user on the Sidebar
+ * Display the time(s) the notes were modified and/or created
+ * Show what user is logged in on the Sidebar
  * Hide SignIn popup window during authentication
  * Customize sign-in page
 
@@ -30,8 +27,9 @@ This is the 3rd project for XTern Bootcamp 2018, Session 1.
 * [React.js 16.3.2](https://reactjs.org/) - JavaScript framework for building the website
 * [Fauna One: Oxygen](https://fonts.google.com/specimen/Fauna+One) - Font family for the website
 * [Font Awesome 5.0.13](https://fontawesome.com/) - Draws vector icons for the website
-* [Firebase](https://firebase.google.com/) - Back-end database and user authentication for Google & GitHub
+* [Firebase](https://firebase.google.com/) - Hosts back-end database and website, and provides user authentication for Google & GitHub
 * [Re-Base](https://github.com/tylermcginnis/re-base) - Syncs React.js state with Firebase database
+* [React Router DOM](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom) - For navigating between URLs on the page
 
 ## Acknowledgments
 * [TechPoint](https://techpoint.org/) - For hosting the [XTern Bootcamp](https://techpoint.org/xtern-bootcamp/), where this project was completed: [Source code](https://github.com/xtbc18s1/noteherder/tree/afternoon) for in-class demo.
