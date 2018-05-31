@@ -5,20 +5,20 @@ class NoteForm extends React.Component {
     constructor(props) {
       super(props)
       this.state = {
-        note: this.blankNote()
+        note: NoteForm.blankNote()
       };
     } 
 
-    componentWillReceiveProps = newProps => {
+    static getDerivedStateFromProps = (newProps, state) => {
       // Get the ID from the URL
       const newId = newProps.match.params.id || '';
 
       //Find the note with that ID
       const i = newProps.notes.findIndex(currentNote => currentNote.id.toString() === newId.toString());
-      const note = newProps.notes[i] || this.blankNote();
+      const note = newProps.notes[i] || NoteForm.blankNote();
 
       //Update state with that note
-      this.setState({ note });
+      return { note };
     }
 
     handleChanges = (ev) => {
@@ -28,7 +28,7 @@ class NoteForm extends React.Component {
       this.setState({ note });
     }
 
-    blankNote = () => {
+    static blankNote = () => {
         return {
             id: null,
             title: "",
